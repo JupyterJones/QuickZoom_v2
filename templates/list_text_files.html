@@ -1,0 +1,12 @@
+<!-- list_text_files.html -->
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/dark.css') }}">
+
+
+{% for file in text_files %}
+
+<ul>
+   <li>
+   	<a href="{{ url_for('read_text_file', filename=file) }}">{{ file }}</a>
+   </li>
+    {% endfor %}
+</ul>

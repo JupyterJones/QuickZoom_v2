@@ -1,0 +1,37 @@
+<!-- TEXT.html -->
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dark.css') }}">
+<style>
+	html {
+	width: 100%;	
+	}
+	body {
+		width: 100%;
+		font-family: monospace;
+		font-size: 24px;
+		background-color: black;
+		color: lightgreen;
+
+	
+}
+pre {
+	margin-right: auto;
+	margin-left: auto;
+	width: 95%;
+	font-family: monospace;
+	font-size: 24px;
+	background-color: black;
+	color: lightgreen;
+    white-space: pre-wrap; /* Preserve spaces and wrap text */
+    word-break: normal; /* Prevent words from breaking */
+    overflow-wrap: normal; /* Prevent forced word breaks */
+	
+}
+</style>
+<body>
+<h1>{{filename}} /TEXT.html</h1>
+<a href="/">HOME</a>
+<pre>{{text}}</pre>
+
+</body>

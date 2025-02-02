@@ -1,0 +1,15 @@
+<h2>Images in {{ directory }}</h2>
+<a href="{{ url_for('images') }}">Back to directories</a>
+{% if image_files %}
+    <ul>
+        {% for image_file in image_files %}
+        <li>
+            <img src="{{ url_for('static', filename='images/' + directory + '/' + image_file) }}" width="200">
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No images found in this directory.</p>
+{% endif %}
+
+<a href="{{ url_for('images') }}">Back to directories</a>

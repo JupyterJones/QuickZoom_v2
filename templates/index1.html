@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Zoom App</title>
+    <script>
+        function uploadImage() {
+            let formData = new FormData();
+            formData.append("image", document.getElementById("imageUpload").files[0]);
+
+            fetch("/upload", { method: "POST", body: formData })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.filename) {
+                        document.getElementById("image").src = data.url;
+                        document.getElementById("image").dataset.filename = data.filename;
+                    } else {
+                        alert("Upload failed: " + data.error);
+                    }
+                });
+        }
+
+        function setClickCoordinates(event) {
+            let img = event.target;
+            let rect = img.getBoundingClientRect();
+            let x = event.clientX - rect.left;
+            let y = event.clientY - rect.top;
+            let zoom = document.getElementById("zoomLevel").value;
+
+            fetch("/click", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ x, y, zoom })
+            }).then(response => response.json())
+              .then(data => console.log(data.message));
+        }
+
+        function generateVideo() {
+            fetch("/generate_video", { method: "POST" })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.video_url) {
+                        document.getElementById("video").src = data.video_url;
+                        document.getElementById("videoContainer").style.display = "block";
+                    } else {
+                        alert("Video generation failed: " + data.error);
+                    }
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Image Zooming App index1.html</h1>
+    <input type="file" id="imageUpload" onchange="uploadImage()">
+    
+    <div>
+        <p>Click on the image to set the zoom point.</p>
+        <label>Zoom Level:</label>
+        <input type="number" id="zoomLevel" value="1.5" step="0.1">
+    </div>
+
+    <img id="image" onclick="setClickCoordinates(event)" style="max-width: 100%; cursor: crosshair;">
+    <br/><br/>
+    <button onclick="generateVideo()">Generate Zoom Video</button>
+
+    <div id="videoContainer" style="display: none;">
+        <h2>Generated Video</h2>
+        <video id="video" controls></video>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Edit Text File</title>
+ 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dark.css') }}">
+</head>
+<style>textarea {
+    width: 96%;
+    height: 700px;
+    color: lightgreen; /* Light green for code text */
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto; /* Enable horizontal scroll for long code lines */
+    /* white-space: pre-wrap; */
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-size: 15px;
+
+}
+</style>
+    <h1>Edit Text File - {{ filename }}</h1>
+    -- edit.html --
+    
+    <form action="{{ url_for('edit', filename=filename) }}" method="post">
+        <label for="text">Text:</label><br>
+        <textarea id="text" name="text" required>{{ text }}</textarea><br><br>
+        <button type="submit">Save Changes</button>
+    </form>
+
+  
+</body>
+</html>

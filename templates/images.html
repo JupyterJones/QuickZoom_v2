@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image Zoom & Video</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; 
+        background-color: #230202;color: white;
+        font-size: 22px;width: 100%;height: 100%;
+        }
+        img { max-width: 100%; cursor: crosshair; }
+        #video-container { display: none; }
+        video { max-width: 50%;height: auto;}
+        span { font-weight: bold; color:darkred;font-size: 25px; }
+        a { font-weight: bold; color:lightgray;font-size: 25px; }
+    </style>
+</head>
+<body>
+    <span>Upload an Image</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/upload">Upload Image</a><br/>
+    <a href="/">Reload Page</a><br/>
+    <a href="static/assets/app.txt">The App</a><br/>
+
+{% if image_directories %}
+    <ul>
+        {% for image_directory in image_directories %}
+        <li><a href="static/images/{{ image_directory }}">images/{{ image_directory }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+    <!--input type="file" id="image-upload" accept="image/*">
+    <br>
+    <img id="uploaded-image" style="display:none;">
+    <br>
+    <label>Zoom Level: <input type="range" id="zoom-level" min="1" max="5" step="0.1" value="2"></label>
+    <br>
+    <button id="generate-video">Generate Zoom Video</button>
+    <br>
+    <div id="video-container">
+        <h2>Generated Video</h2>
+        <video id="zoom-video" controls></video>
+    </div>
+    
+    <script>
+        let imagePath = "";
+        let point = null;  // Store only one point
+
+        $('#image-upload').on('change', function(event) {
+            let file = event.target.files[0];
+            let formData = new FormData();
+            formData.append('image', file);
+            
+            $.ajax({
+                url: '/upload',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    imagePath = response.filepath;
+                    $('#uploaded-image').attr('src', imagePath).show();
+                    point = null;  // Reset point selection when a new image is uploaded
+                }
+            });
+        });
+
+        $('#uploaded-image').on('click', function(event) {
+            if (!point) {  // Allow only one point selection
+                let imgOffset = $(this).offset();
+                let x = (event.pageX - imgOffset.left) / $(this).width();
+                let y = (event.pageY - imgOffset.top) / $(this).height();
+                point = [x, y];  // Store the selected point
+            }
+        });
+
+        $('#generate-video').on('click', function() {
+            if (!point || !imagePath) {
+                alert('Please select a point on the image.');
+                return;
+            }
+            
+            let zoom = $('#zoom-level').val();
+            
+            $.ajax({
+                url: '/process',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ image_path: imagePath, points: [point], zoom: zoom }),  // Send only one point
+                success: function(response) {
+                    $('#zoom-video').attr('src', response.video_path);
+                    $('#video-container').show();
+                }
+            });
+        });
+    </script-->
+    <video src="static/videos/temp.mp4" controls></video>
+</body>
+</html>

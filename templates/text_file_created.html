@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text File Created</title>
+</head>
+<body>
+    <h1>Text File Created Successfully</h1>
+    <a href="{{ url_for('list_text_files') }}">List Text Files</a>
+    <p>The text file has been created successfully:<br/>
+        <pre>{{ text_content | safe }}</pre>
+    </p>
+    <p>Your text file has been created and saved at: <strong>{{ text_file_path }}</strong></p>
+
+    <a href="{{ url_for('static', filename=text_file_path.split('static/')[1]) }}" download>Download Text File</a>
+
+</body>
+</html>

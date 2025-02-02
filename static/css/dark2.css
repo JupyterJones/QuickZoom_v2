@@ -1,0 +1,185 @@
+/* Dark Theme */
+body {
+    background-color: #282c34; /* Dark gray/blue */
+    color: #abb2bf; /* Light gray for text */
+    font-family: Arial, sans-serif;
+    /* add backgroun image static/assets/background.png*/
+    background-image: url('assets/background.png');
+}
+
+/* Headers and links */
+h1, h2, h3 {
+    color: #61afef; /* Light blue */
+}
+
+a {
+    color: #e06c75; /* Salmon pink */
+}
+
+a:hover {
+    color: #be5046; /* Darker salmon pink on hover */
+}
+
+/* Container backgrounds */
+.container {
+    background-color: #3e4451; /* Darker gray/blue */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Code blocks */
+pre {
+    background-color: #1e222a; /* Darker background for code blocks */
+    color: lightgreen ; /* Light green for code text */
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto; /* Enable horizontal scroll for long code lines */
+    /* white-space: pre-wrap; */
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-size: 16px;
+}
+
+/* Buttons */
+.btn {
+    background-color: #61afef; /* Light blue */
+    color: #282c34; /* Dark background color for button text */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #518aba; /* Slightly darker blue on hover */
+}
+
+/* Forms */
+input[type=text], textarea {
+    background-color: #2c313a; /* Dark gray/blue for input fields */
+    color: #abb2bf; /* Light gray text */
+    border: 1px solid #61afef; /* Light blue border */
+    padding: 8px;
+    border-radius: 5px;
+}
+
+input[type=submit] {
+    background-color: #61afef; /* Light blue */
+    color: #282c34; /* Dark background color for button text */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type=submit]:hover {
+    background-color: #518aba; /* Slightly darker blue on hover */
+}
+input[type=texy]{
+    color: lightgreen;
+}
+textarea {
+   
+    color: lightgreen; /* Light green for code text */
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto; /* Enable horizontal scroll for long code lines */
+    /* white-space: pre-wrap; */
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-size: 16px;
+
+}
+span {
+    color: lightgreen;
+    font-size: 24px;
+    font-weight: bold;
+}
+.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+
+   
+    top: 0;
+    background-color: #772805;
+    padding: 10px 0;
+    z-index: 1000;
+    margin-bottom: 25px;
+    width: 100%;
+}
+.note{
+    color: rgb(255, 213, 0);
+    font-size: 24px;
+    font-weight: bold;
+}
+/* Add this to your CSS file */
+
+.inline-form input[type="text"],
+.inline-form input[type="submit"] {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.inline-form {
+    display: inline-block;
+}
+textarea.small {
+    background-color: #2c313a; /* Dark gray/blue for input fields */
+    color: #1fff02; /* Light gray text */
+    border: 1px solid #61afef; /* Light blue border */
+    width: 96%;
+    height: 30px;
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 5px;
+}
+ur{
+    color: lightgreen;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px; /* Adjust spacing between items as needed */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Example text color */
+    padding: 5px 10px;
+    /* Additional styling for links */
+}
+
+img{
+    width: 200px;
+    height: auto;
+    border: #d2cece 15px solid;
+}
+
+
+a{
+    color: rgb(255, 213, 0);
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+hr {
+    border: 1px solid #56585a; /* Light blue */
+    width: 75%;
+    margin-top: 10px;
+}
+header{
+    color: lightgreen;
+    font-size: 1.4em;
+    font-weight: bold;
+    width: 100%;
+}

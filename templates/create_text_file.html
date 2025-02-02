@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Text File</title>
+</head>
+<body>
+    <h1>Create a Text File</h1>
+    <a href="{{ url_for('index') }}" class="refresh-button">HOME</a><br><br>
+    
+    <form method="POST" action="/create_text_file">
+        <label for="textarea_content">Enter text to save in a file:</label><br>
+        <textarea id="textarea_content" name="textarea_content" rows="15" cols="120" required></textarea><br><br>
+        <input type="submit" value="Save to File">
+    </form>
+</body>
+</html>

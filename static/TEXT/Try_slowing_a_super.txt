@@ -1,0 +1,1 @@
+Try slowing a super short video and then use tblend to smooth it out.

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Video</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark.css') }}">
+    <style>
+                video {
+            max-width: 20%;
+            height: auto;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Video Editor video_edit.html</h1>
+    <a href="{{ url_for('index') }}" class="refresh-button">HOME</a>
+    <p>Refresh this page after uploading a video.</p>
+    <a href="{{ url_for('upload_mp4_video') }}" class="refresh-button">Upload Video</a>   
+    <a href="{{ url_for('video_edit') }}" class="refresh-button">Edit Upload Video</a>
+    <a href="{{ url_for('get_videos') }}" class="refresh-button">View Video History</a>
+
+
+    <h1>Input</h1>
+    <video controls>
+        <source src="{{ url_for('static', filename='/use.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Form to capture start and stop times -->
+    <form action="{{ url_for('trim_video') }}" method="POST">
+        <div class="container">
+            <label for="startTime">Start Time (in seconds):</label>
+            <input type="number" id="startTime" name="startTime" min="0" step="0.1" required>
+        </div>
+
+        <div class="container">
+            <label for="endTime">End Time (in seconds):</label>
+            <input type="number" id="endTime" name="endTime" min="0" step="0.1" required>
+        </div>
+
+        <button type="submit">Apply Edits</button>
+    </form>
+
+    <h1>Output</h1>
+    <video controls>
+        <source src="{{ url_for('static', filename='bash_vids/trimmed_video.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+</body>
+</html>

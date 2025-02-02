@@ -1,0 +1,19 @@
+@app.route('/create_text_file', methods=['GET', 'POST'])
+def create_text_file():
+    if request.method == 'POST':
+        print("Received request to create a text file.")
+        # Get the text content from the textarea
+        text_content = request.form.get('textarea_content')
+        print(f"Text content for file: {text_content}")
+
+        # Create the file path
+        text_file_path = os.path.join('static/new_video', 'text_file.txt')
+
+        # Write the text content to the file
+        with open(text_file_path, 'w') as file:
+            file.write(text_content)
+        print(f"Text file created at {text_file_path}")
+
+        return render_template('text_file_created.html', text_file_path=text_file_path)
+
+    return render_template('create_text_file.html')

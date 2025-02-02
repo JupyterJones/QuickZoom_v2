@@ -1,0 +1,80 @@
+<!-- templates/zoom_effect.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Transitions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="file"], input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .video-link {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Images for Transition zoom_effects.html</h1>
+    
+    <button><a href="/">Home</a></button>
+    <form action="/zoom_effect" method="POST" enctype="multipart/form-data">
+        <label for="image1">Image 1:</label>
+        <input type="file" name="image1" id="image1" required>
+
+        <label for="image2">Image 2:</label>
+        <input type="file" name="image2" id="image2" required>
+
+        <label for="transition_style">Transition Style:</label>
+        <select name="transition_style" id="transition_style" value="pixel_sorting">
+            <option value="pixel_sorting">Pixel Sorting</option>            <option value="infinite_zoom">Infinite Zoom</option>
+
+        </select>
+
+        <label for="duration">Duration (seconds):</label>
+        <input type="number" step="1" name="duration" id="duration" value="5" required>
+
+        <label for="fps">Frames Per Second (FPS):</label>
+        <input type="number" step="1" name="fps" id="fps" value="30" required>
+
+        <button type="submit">Generate Video</button>
+    </form>
+
+    {% if video %}
+    <div class="video-link">
+        <h2>Video Generated Successfully!</h2>
+        <p>Download your video: <a href="/download/{{ video.split('/')[-1] }}">output.mp4</a></p>
+    </div>
+    {% endif %}
+    <video src="static/uploads/output.mp4" width="640" height="auto" controls></video>
+    <video src="static/uploads/last_generation_no_title.mp4" width="640" height="auto" controls></video>    
+
+<video src="static/uploads/last_generation_with_title.mp4" width="640" height="auto" controls></video>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Upload_mp4</title>   
+    <style>
+        body {
+            background-color: #2C2C2C;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .refresh-button {
+            display: inline-block;
+            padding: 5px;
+            margin: 10px;
+            font-size: 2em;
+            background-color: orange;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 1px;
+        }
+
+        .refresh-button2 {
+            display: inline-block;
+            padding: 5px;
+            margin: 10px;
+            font-size: 2em;
+            background-color: rgb(255, 225, 0);
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 1px;
+        }
+        .refresh-button3 {
+            display: inline-block;
+            padding: 5px;
+            margin: 10px;
+            font-size: 2em;
+            background-color: blue;
+            color: yellow;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 1px;
+        }
+        .refresh-button:hover {
+            background-color: orange;
+        }
+
+        .sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            background-color: orange;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        .video-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        figure {
+            max-width: 300px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        figcaption {
+            margin-top: 8px;
+            font-size: 1rem;
+            color: #cccccc;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgb(156, 23, 23);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 23px;
+            color: black;
+            background-color: orange;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: orange;
+        }
+        video {
+            max-width: 40%;
+            height: auto;
+            
+        }
+    </style>
+</head>
+
+<body style="background-color: rgb(156, 23, 23);">
+    <center>
+        <h1 style="color: orange;">FlaskArchitect's upload_mp4.html</h1>
+    <a style ="font-size: 24px;color: rgb(255, 238, 0);" href="{{ url_for('index') }}">HOME</a>
+    <h1>Upload mp4</h1>
+
+       <h1>upload Video and View Final Video</h1>
+        <form action="/upload_mp4" method="POST" enctype="multipart/form-data">
+            <label for="videoFile">Select an MP4 file:</label>
+            <input type="file" name="videoFile" accept=".mp4" id="videoFile">
+            <input type="submit" value="Upload">
+        </form>
+
+        <video width="300" height="auto" controls>
+            <source src= "{{VIDEO}}" type="video/mp4">
+            <span>{{VIDEO}}</span>
+        </video>
+ <br/><br/>
+          <a style ="font-size: 24px;color: rgb(255, 238, 0);" href="{{ url_for('speed_up') }}">Speedup 512x820</a><br><br/>
+         <a style ="font-size: 24px;color: rgb(255, 238, 0);" href="{{ url_for('reverse_videom') }}">reverse 512x820</a><br><br/>
+        <a style ="font-size: 24px;color: rgb(255, 238, 0);" href="{{ url_for('reverse_video') }}">reverse 512x768</a><br><br/>
+                <a style ="font-size: 24px;color: rgb(255, 238, 0);" href="{{ url_for('reverse_videos') }}">reverse square</a>
+                <br/><br/>
+                        <video width="300" height="auto" controls>
+            <source src= "static/use.mp4" type="video/mp4">
+            <span>{{VIDEO}}</span>
+        </video>
+</body>
+</html>

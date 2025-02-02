@@ -1,0 +1,18 @@
+
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dark.css') }}">
+
+    <h1>Text File Editor / edit_text.html</h1>
+    <h2>Existing Text Files - click filenames to edit</h2>
+   
+        {% for file in files %}
+            
+                <p><a href="{{ url_for('edit', filename=file) }}">{{ file }}</a><br/>
+                <a style="color:red;" href="{{ url_for('delete', filename=file) }}">Delete</a></p><hr>
+            
+        {% endfor %}
+  
+
+
+
+
